@@ -52,6 +52,13 @@ const NEWSLETTER_ENDPOINT = "";
 
   /* --- 4. Révélations au scroll (IntersectionObserver) --- */
   var reveals = document.querySelectorAll(".reveal");
+
+  function revealAll() {
+    reveals.forEach(function (el) {
+      el.classList.add("in");
+    });
+  }
+
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(
       function (entries) {
@@ -62,17 +69,19 @@ const NEWSLETTER_ENDPOINT = "";
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
     );
     reveals.forEach(function (el, i) {
       // petit décalage en cascade pour les éléments voisins
       el.style.transitionDelay = (i % 3) * 0.08 + "s";
       io.observe(el);
     });
+
+    // Filet de sécurité : si une section n'a pas été révélée (quirk mobile,
+    // observer qui ne se déclenche pas…), on l'affiche quoi qu'il arrive.
+    setTimeout(revealAll, 2600);
   } else {
-    reveals.forEach(function (el) {
-      el.classList.add("in");
-    });
+    revealAll();
   }
 
   /* --- 5. Compteurs animés --- */
