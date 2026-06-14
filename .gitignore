@@ -7,3 +7,5 @@ package.json
 package-lock.json
 shot.mjs
 apercu-*.png
+pdf.mjs
+cadeau/apercu-cadeau.png

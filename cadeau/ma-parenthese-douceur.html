@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --fuchsia:#e6007e;--fuchsia-deep:#b80064;--gold:#f7b733;--blue:#3bbcd6;
+    --ink:#2c2230;--ink-soft:#6a5f70;--beige:#faf3e7;
+  }
+  body{font-family:'Manrope',sans-serif;color:var(--ink);}
+  .page{
+    width:210mm;height:297mm;padding:18mm 16mm;position:relative;overflow:hidden;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(255,210,63,.16), transparent 30%),
+      radial-gradient(circle at 0% 100%, rgba(59,188,214,.14), transparent 32%),
+      #fffdf8;
+  }
+  .brand{display:flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-weight:600;color:var(--fuchsia-deep);font-size:14pt;}
+  .brand span{color:var(--gold);}
+  .title{font-family:'Fraunces',serif;font-weight:900;font-size:34pt;line-height:1.05;letter-spacing:-.5px;margin-top:10mm;}
+  .title em{font-style:normal;color:var(--fuchsia);}
+  .sub{color:var(--ink-soft);font-size:11.5pt;margin-top:4mm;max-width:150mm;}
+  .rule{height:3px;width:42mm;background:linear-gradient(90deg,var(--fuchsia),var(--gold));border-radius:3px;margin:8mm 0;}
+
+  .block{margin-bottom:8mm;}
+  .label{font-family:'Fraunces',serif;font-weight:600;font-size:14pt;color:var(--ink);margin-bottom:3mm;display:flex;align-items:center;gap:6px;}
+  .label b{color:var(--fuchsia);}
+  .hint{color:var(--ink-soft);font-size:9.5pt;font-weight:400;}
+
+  .weather{display:flex;gap:10mm;margin-top:2mm;}
+  .weather div{display:flex;flex-direction:column;align-items:center;gap:2mm;font-size:9pt;color:var(--ink-soft);}
+  .weather .ico{width:14mm;height:14mm;border-radius:50%;border:1.5px solid rgba(230,0,126,.3);display:flex;align-items:center;justify-content:center;font-size:18pt;}
+
+  .lines i{display:block;border-bottom:1.4px dotted #cbb;height:9mm;}
+  .lines.short i{height:8mm;}
+
+  .duo{display:flex;gap:10mm;}
+  .duo .block{flex:1;}
+
+  .affirm{
+    margin-top:4mm;background:linear-gradient(150deg,var(--fuchsia),var(--fuchsia-deep));color:#fff;border-radius:8mm;
+    padding:8mm;text-align:center;
+  }
+  .affirm .q{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:16pt;}
+  .affirm .s{font-size:9.5pt;opacity:.9;margin-top:2mm;}
+
+  .foot{position:absolute;left:16mm;right:16mm;bottom:12mm;display:flex;justify-content:space-between;align-items:center;font-size:9pt;color:var(--ink-soft);}
+  .foot b{color:var(--fuchsia-deep);}
+  .flower{position:absolute;top:-12mm;right:-12mm;width:70mm;height:70mm;border-radius:50%;
+    background:radial-gradient(circle at 60% 40%, rgba(255,143,192,.35), rgba(255,210,63,.18) 60%, transparent 70%);}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="flower"></div>
+
+    <div class="brand">✦ Ma Douce <span>Vie</span></div>
+
+    <h1 class="title">Ma <em>parenthèse</em> douceur</h1>
+    <p class="sub">Une page rien que pour toi. Installe-toi confortablement, respire un grand coup, et offre-toi quelques minutes de douceur. Il n'y a pas de bonne ou de mauvaise réponse. 🤍</p>
+    <div class="rule"></div>
+
+    <div class="block">
+      <div class="label">☀ Ma météo intérieure du jour <span class="hint">(entoure)</span></div>
+      <div class="weather">
+        <div><span class="ico">☀️</span>rayonnante</div>
+        <div><span class="ico">⛅</span>douce</div>
+        <div><span class="ico">🌧️</span>nuageuse</div>
+        <div><span class="ico">🌈</span>en transition</div>
+        <div><span class="ico">⭐</span>pleine d'élan</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="label"><b>3</b> petits bonheurs d'aujourd'hui</div>
+      <div class="lines short"><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="duo">
+      <div class="block">
+        <div class="label">💗 Une douceur que je m'offre</div>
+        <div class="lines short"><i></i><i></i></div>
+      </div>
+      <div class="block">
+        <div class="label">🍃 Ce que je laisse partir</div>
+        <div class="lines short"><i></i><i></i></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="label">✨ Aujourd'hui, j'ai envie de… <span class="hint">(une envie, même toute petite)</span></div>
+      <div class="lines"><i></i><i></i></div>
+    </div>
+
+    <div class="affirm">
+      <div class="q">« Sois bienveillante, tu es importante. »</div>
+      <div class="s">Respire : 4 secondes pour inspirer, 6 pour expirer. Trois fois. Tu es là, et c'est déjà beau.</div>
+    </div>
+
+    <div class="foot">
+      <span>✦ Ta parenthèse douceur, offerte par <b>Ma Douce Vie</b></span>
+      <span>Retrouve 110 pages de douceur &amp; +30 mini-jeux sur Amazon</span>
+    </div>
+  </div>
+</body>
+</html>
