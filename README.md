@@ -27,6 +27,20 @@ const AMAZON_URL = "https://amzn.eu/d/0axtAiyB";
 
 Tous les boutons « commander » pointent automatiquement vers cette adresse.
 
+## 💌 Newsletter (capture email)
+
+La section newsletter fonctionne déjà (validation + message de succès).
+Pour **recevoir réellement les emails**, renseigne ton service d'emailing
+dans `assets/js/main.js` → constante `NEWSLETTER_ENDPOINT` :
+
+```js
+// Exemple avec Formspree (gratuit) :
+const NEWSLETTER_ENDPOINT = "https://formspree.io/f/xxxxxx";
+```
+
+Tant que la valeur reste vide, le formulaire affiche un remerciement
+sans rien envoyer (parfait pour tester l'affichage).
+
 ## 🖼️ Images
 
 Les visuels sont dans `assets/img/` :
@@ -51,7 +65,10 @@ C'est un site **statique** (HTML/CSS/JS, aucune dépendance, aucun build).
 
 - **Netlify** : glisse-dépose le dossier sur https://app.netlify.com/drop
 - **Vercel** : `vercel` à la racine du projet
-- **GitHub Pages** : Settings → Pages → branche `main` / dossier racine
+- **GitHub Pages (automatique)** : un workflow est déjà prêt
+  (`.github/workflows/deploy.yml`). Active-le une seule fois :
+  **Settings → Pages → Source : GitHub Actions**. À chaque push, le site
+  est republié automatiquement.
 
 ## 📁 Structure
 
