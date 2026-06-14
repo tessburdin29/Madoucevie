@@ -252,6 +252,49 @@ em{font-style:normal;}
 .quote figcaption{font-weight:700;color:var(--fuchsia-deep);font-size:.9rem;}
 .reviews__note{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:.85rem;}
 
+/* ---------- Cadeau ---------- */
+.gift__card{
+  background:linear-gradient(160deg,var(--white),var(--cream));border-radius:36px;
+  padding:clamp(36px,5vw,64px);box-shadow:var(--shadow);border:1px solid rgba(247,183,51,.22);
+}
+.gift__head{text-align:center;max-width:640px;margin:0 auto 40px;}
+.gift__head h2{margin-top:4px;}
+.gift__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:40px;}
+.gift__item{
+  display:flex;flex-direction:column;gap:6px;text-align:center;padding:26px 18px;border-radius:var(--radius-sm);
+  background:#fff;border:1px solid rgba(230,0,126,.1);transition:transform .3s,box-shadow .3s;
+}
+.gift__item:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+.gift__emoji{font-size:2rem;}
+.gift__item b{font-family:var(--font-display);font-size:1.1rem;color:var(--fuchsia-deep);}
+.gift__item span:last-child{font-size:.86rem;color:var(--ink-soft);}
+.gift__card > .btn{display:flex;width:max-content;margin:0 auto;}
+
+/* ---------- Newsletter ---------- */
+.newsletter{max-width:var(--maxw);}
+.newsletter__card{
+  text-align:center;border-radius:36px;padding:clamp(40px,6vw,72px) clamp(24px,5vw,56px);color:#fff;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(255,210,63,.45),transparent 55%),
+    radial-gradient(circle at 85% 100%,rgba(59,188,214,.5),transparent 55%),
+    linear-gradient(150deg,var(--fuchsia-glow),var(--fuchsia-deep));
+  box-shadow:var(--shadow);
+}
+.newsletter__card .eyebrow{color:#fff;background:rgba(255,255,255,.18);}
+.newsletter__card h2{color:#fff;}
+.newsletter__card h2 .grad{-webkit-text-fill-color:#ffe7a0;color:#ffe7a0;background:none;}
+.newsletter__card > p{color:rgba(255,255,255,.92);max-width:520px;margin:16px auto 28px;}
+.newsletter__form{display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+.newsletter__form input{
+  flex:1;min-width:240px;border:none;border-radius:50px;padding:16px 24px;font-family:var(--font-body);
+  font-size:1rem;color:var(--ink);box-shadow:0 8px 22px rgba(0,0,0,.12);
+}
+.newsletter__form input:focus{outline:3px solid var(--yellow);}
+.newsletter__form .btn{background:var(--yellow);color:var(--ink);box-shadow:0 10px 24px rgba(0,0,0,.18);}
+.newsletter__form .btn:hover{background:#ffdb5e;}
+.newsletter__msg{min-height:1.4em;margin-top:16px;font-weight:700;color:#fff;}
+.newsletter__legal{display:block;margin-top:14px;font-size:.76rem;color:rgba(255,255,255,.72);}
+
 /* ---------- CTA final ---------- */
 .final{max-width:var(--maxw);}
 .final__card{
@@ -315,12 +358,14 @@ em{font-style:normal;}
   .hero__cta,.hero__trust{justify-content:center;}
   .hero__media{order:-1;}
   .cards,.stats,.quotes,.gallery{grid-template-columns:1fr;}
-  .gallery{grid-template-columns:1fr 1fr;}
+  .gallery,.gift__grid{grid-template-columns:1fr 1fr;}
   .inside__grid,.recois__grid{grid-template-columns:1fr;gap:36px;}
   .recois__visual{order:-1;}
 }
 @media(max-width:560px){
-  .gallery{grid-template-columns:1fr;}
+  .gallery,.gift__grid{grid-template-columns:1fr;}
+  .newsletter__form{flex-direction:column;}
+  .newsletter__form .btn{width:100%;justify-content:center;}
   .marquee__track span{font-size:1.2rem;}
   .floating-buy span{font-size:0;}
   .floating-buy span::before{content:"✦ Amazon";font-size:.95rem;}

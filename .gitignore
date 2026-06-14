@@ -3,3 +3,7 @@ node_modules/
 *.log
 .vercel
 .netlify
+package.json
+package-lock.json
+shot.mjs
+apercu-*.png

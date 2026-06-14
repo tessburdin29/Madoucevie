@@ -8,6 +8,15 @@
    ----------------------------------------------------------------- */
 const AMAZON_URL = "https://amzn.eu/d/0axtAiyB";
 
+/* -----------------------------------------------------------------
+   ▶ NEWSLETTER (optionnel)
+   Colle ici l'URL de ton service d'emailing (Formspree, Brevo,
+   Mailchimp, Beehiiv…). Tant que la valeur reste vide, le formulaire
+   affiche un message de remerciement sans rien envoyer.
+   Exemple Formspree : "https://formspree.io/f/xxxxxx"
+   ----------------------------------------------------------------- */
+const NEWSLETTER_ENDPOINT = "";
+
 (function () {
   "use strict";
 
@@ -104,7 +113,49 @@ const AMAZON_URL = "https://amzn.eu/d/0axtAiyB";
     });
   }
 
-  /* --- 6. Parallax léger des stickers du hero --- */
+  /* --- 6. Newsletter --- */
+  var nlForm = document.getElementById("newsletterForm");
+  if (nlForm) {
+    var nlInput = document.getElementById("newsletterEmail");
+    var nlMsg = document.getElementById("newsletterMsg");
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    nlForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = (nlInput.value || "").trim();
+
+      if (!emailRe.test(email)) {
+        nlMsg.textContent = "Oups, vérifie ton adresse email 🙈";
+        nlInput.focus();
+        return;
+      }
+
+      function success() {
+        nlForm.reset();
+        nlMsg.textContent = "Merci ✦ Ta page douceur arrive dans ta boîte mail 💛";
+      }
+
+      if (NEWSLETTER_ENDPOINT) {
+        nlMsg.textContent = "Un instant…";
+        fetch(NEWSLETTER_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ email: email }),
+        })
+          .then(function (r) {
+            if (r.ok) success();
+            else nlMsg.textContent = "Petit souci d'envoi, réessaie dans un instant 🙏";
+          })
+          .catch(function () {
+            nlMsg.textContent = "Connexion impossible, réessaie dans un instant 🙏";
+          });
+      } else {
+        success();
+      }
+    });
+  }
+
+  /* --- 7. Parallax léger des stickers du hero --- */
   var stickers = document.querySelectorAll(".sticker");
   if (stickers.length && window.matchMedia("(min-width:900px)").matches) {
     window.addEventListener(
